@@ -22,7 +22,7 @@ const Info =()=>{
         <div>
             <div>
                 <input name="name" value={name} onChange={onChange} />
-                <input name="nickname" value={nickname} onChange={onChange} />
+                <input name="nickname" value={nickname} onChange={onChangeNickname} />
             </div>
         <div>
             <div>
