@@ -1,31 +1,41 @@
 import React, {Component} from 'react';
-import LifeCycleSample from './LifeCycleSample';
-import ErrorBoundary from './ErrorBoundary';
-
-function getRandomColor(){
-    return '#' + Math.floor(Math.random() * 16777215).toString(16);
-}
+import ScrollBox from './ScrollBox';
 
 class App extends Component{
+
     state ={
-        color: '#000000'
+        upDown :'u',
+        value: 'To Bottom',
     }
 
-    handleClick = ()=>{
-        this.setState({
-            color:getRandomColor()
-        });
+    upOrDown = () => {
+        if(this.state.upDown ==='u'){
+            this.setState({
+                upDown:'d',
+                value:'To top',
+            });
+        }
+        else{
+            this.setState({
+                upDown:'u',
+                value:'To Bottom',
+            })
+        }
     }
 
     render(){
         return(
             <div>
-                <button onClick={this.handleClick}>랜덤색상</button>
-                <ErrorBoundary>
-                <LifeCycleSample color={this.state.color}/>
-                </ErrorBoundary>
+                <ScrollBox ref={(ref)=>this.scrollBox=ref}/>
+                <button onClick={()=>{
+                    this.scrollBox.scrollChange(this.state.upDown);
+                    this.upOrDown();
+                }}>
+                    이동
+                </button>
             </div>
-        )
+        );
     }
 }
+
 export default App;

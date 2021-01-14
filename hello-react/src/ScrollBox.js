@@ -2,12 +2,32 @@ import React, {Component} from 'react';
 
 class ScrollBox extends Component {
 
+        scrollChange = (param)=> {
+            const {scrollHeight, clientHeight} = this.box;
+
+            if(param === 'u'){
+                this.box.scrollTop = scrollHeight - clientHeight;
+            }
+            else{
+                this.box.scrollTop =0;
+            }
+        }
+           
+    
+/*
 //비구조화 할당 문법
     scrollToBottom=()=>{
         const{scrollHeight, clientHeight}=this.box;
-        this.box.scrollTop = scrollHeight - clientHeight;
-    }
+        //this.box.scrollTop = scrollHeight - clientHeight;
 
+        if(param==='u'){
+            this.box.scrollTop = scrollHeight - clientHeight;
+        }
+        else{
+            this.box.scroll=0;
+        }
+    }
+*/
     render(){
         const style={
             border:'1px solid black',
