@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-//id가 root인 요소에 리액트 컴포넌트를 렌더링 하라
 ReactDOM.render(
   <React.StrictMode>
     <App />
