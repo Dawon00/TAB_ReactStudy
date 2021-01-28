@@ -1,16 +1,22 @@
 import React from 'react';
 import{
-    BsFillTrashFill
+    BsFillHeartFill,BsHeart,BsFillTrashFill
 }from "react-icons/bs";
+import cn from 'classnames';
 import './ListItem.scss';
 
-const ListItem=()=>{
+
+const ListItem=({post,onToggle,onRemove})=>{
+    const{id,text,checked}=post;
+
     return(
         <div className="ListItem">
-            <div className="text">
-                게시글
+            <div className={cn('checkbox', {checked})} onClick={()=>onToggle(id)}>
+            <div className="text">{text}</div>
+            
+            {checked ? <BsFillHeartFill /> : <BsHeart/>}
             </div>
-            <div className="remove">
+            <div className="remove" onClick={() => onRemove(id)}>
                 <BsFillTrashFill/>
             </div>
         </div>

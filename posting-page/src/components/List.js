@@ -2,11 +2,17 @@ import React from 'react';
 import ListItem from './ListItem';
 import './List.scss';
 
-const List =()=>{
+const List =({posts, onToggle,onRemove})=>{
     return (
         <div className="List">
-            <ListItem/>
-            <ListItem/>
+            {posts.map(post => (
+                <ListItem 
+                post={post} 
+                key={post.id}
+                onRemove ={onRemove}
+                onToggle={onToggle}
+                />
+            ))}
         </div>
     );
 };
